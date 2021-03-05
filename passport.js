@@ -34,15 +34,15 @@ passport.use(
 //   )
 // );
 
-// passport.serializeUser(function (user, done) {
-//   done(null, user.id);
-// });
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
 
-// passport.deserializeUser((id, done) => {
-//   User.findById(id, (err, user) => {
-//     done(err, user);
-//   });
-// });
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
